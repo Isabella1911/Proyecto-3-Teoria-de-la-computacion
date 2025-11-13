@@ -1,0 +1,95 @@
+{
+  "Q": ["q0", "qSkipHash", "qEnc", "qAccept"],
+  "Sigma": [
+    " ", "#", ".", "A","B","C","D","E","F","G","H","I","J","K",
+    "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+    "0","1","2","3","4","5","6","7","8","9"
+  ],
+  "Gamma": [
+    "_",
+    " ", "#", ".", "A","B","C","D","E","F","G","H","I","J","K",
+    "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+    "0","1","2","3","4","5","6","7","8","9"
+  ],
+  "blank": "_",
+  "q0": "q0",
+  "F": ["qAccept"],
+  "num_tapes": 2,
+  "transitions": [
+
+    
+    ["q0", ["3","_"], "qSkipHash", ["3","_"], ["R","S"]],
+
+    
+    ["q0", ["#","_"], "qEnc", ["#","_"], ["R","S"]],
+    ["q0", [" ","_"], "q0", [" ","_"], ["R","S"]],
+    ["q0", ["_","_"], "qAccept", ["_","_"], ["S","S"]],
+
+    
+    ["qSkipHash", ["#","_"], "qEnc", ["#","_"], ["R","S"]],
+    ["qSkipHash", [" ","_"], "qSkipHash", [" ","_"], ["R","S"]],
+    ["qSkipHash", ["A","_"], "qSkipHash", ["A","_"], ["R","S"]],
+    ["qSkipHash", ["B","_"], "qSkipHash", ["B","_"], ["R","S"]],
+    ["qSkipHash", ["C","_"], "qSkipHash", ["C","_"], ["R","S"]],
+    ["qSkipHash", ["D","_"], "qSkipHash", ["D","_"], ["R","S"]],
+    ["qSkipHash", ["E","_"], "qSkipHash", ["E","_"], ["R","S"]],
+    ["qSkipHash", ["F","_"], "qSkipHash", ["F","_"], ["R","S"]],
+    ["qSkipHash", ["G","_"], "qSkipHash", ["G","_"], ["R","S"]],
+    ["qSkipHash", ["H","_"], "qSkipHash", ["H","_"], ["R","S"]],
+    ["qSkipHash", ["I","_"], "qSkipHash", ["I","_"], ["R","S"]],
+    ["qSkipHash", ["J","_"], "qSkipHash", ["J","_"], ["R","S"]],
+    ["qSkipHash", ["K","_"], "qSkipHash", ["K","_"], ["R","S"]],
+    ["qSkipHash", ["L","_"], "qSkipHash", ["L","_"], ["R","S"]],
+    ["qSkipHash", ["M","_"], "qSkipHash", ["M","_"], ["R","S"]],
+    ["qSkipHash", ["N","_"], "qSkipHash", ["N","_"], ["R","S"]],
+    ["qSkipHash", ["O","_"], "qSkipHash", ["O","_"], ["R","S"]],
+    ["qSkipHash", ["P","_"], "qSkipHash", ["P","_"], ["R","S"]],
+    ["qSkipHash", ["Q","_"], "qSkipHash", ["Q","_"], ["R","S"]],
+    ["qSkipHash", ["R","_"], "qSkipHash", ["R","_"], ["R","S"]],
+    ["qSkipHash", ["S","_"], "qSkipHash", ["S","_"], ["R","S"]],
+    ["qSkipHash", ["T","_"], "qSkipHash", ["T","_"], ["R","S"]],
+    ["qSkipHash", ["U","_"], "qSkipHash", ["U","_"], ["R","S"]],
+    ["qSkipHash", ["V","_"], "qSkipHash", ["V","_"], ["R","S"]],
+    ["qSkipHash", ["W","_"], "qSkipHash", ["W","_"], ["R","S"]],
+    ["qSkipHash", ["X","_"], "qSkipHash", ["X","_"], ["R","S"]],
+    ["qSkipHash", ["Y","_"], "qSkipHash", ["Y","_"], ["R","S"]],
+    ["qSkipHash", ["Z","_"], "qSkipHash", ["Z","_"], ["R","S"]],
+    ["qSkipHash", [".","_"], "qSkipHash", [".","_"], ["R","S"]],
+    ["qSkipHash", ["_","_"], "qAccept", ["_","_"], ["S","S"]],
+
+    
+    ["qEnc", ["_","_"], "qAccept", ["_","_"], ["S","S"]],
+
+    
+    ["qEnc", [" ","_"], "qEnc", [" ","_"], ["R","S"]],
+    ["qEnc", [".","_"], "qEnc", [".","_"], ["R","S"]],
+
+    
+    ["qEnc", ["A","_"], "qEnc", ["D","_"], ["R","S"]],
+    ["qEnc", ["B","_"], "qEnc", ["E","_"], ["R","S"]],
+    ["qEnc", ["C","_"], "qEnc", ["F","_"], ["R","S"]],
+    ["qEnc", ["D","_"], "qEnc", ["G","_"], ["R","S"]],
+    ["qEnc", ["E","_"], "qEnc", ["H","_"], ["R","S"]],
+    ["qEnc", ["F","_"], "qEnc", ["I","_"], ["R","S"]],
+    ["qEnc", ["G","_"], "qEnc", ["J","_"], ["R","S"]],
+    ["qEnc", ["H","_"], "qEnc", ["K","_"], ["R","S"]],
+    ["qEnc", ["I","_"], "qEnc", ["L","_"], ["R","S"]],
+    ["qEnc", ["J","_"], "qEnc", ["M","_"], ["R","S"]],
+    ["qEnc", ["K","_"], "qEnc", ["N","_"], ["R","S"]],
+    ["qEnc", ["L","_"], "qEnc", ["O","_"], ["R","S"]],
+    ["qEnc", ["M","_"], "qEnc", ["P","_"], ["R","S"]],
+    ["qEnc", ["N","_"], "qEnc", ["Q","_"], ["R","S"]],
+    ["qEnc", ["O","_"], "qEnc", ["R","_"], ["R","S"]],
+    ["qEnc", ["P","_"], "qEnc", ["S","_"], ["R","S"]],
+    ["qEnc", ["Q","_"], "qEnc", ["T","_"], ["R","S"]],
+    ["qEnc", ["R","_"], "qEnc", ["U","_"], ["R","S"]],
+    ["qEnc", ["S","_"], "qEnc", ["V","_"], ["R","S"]],
+    ["qEnc", ["T","_"], "qEnc", ["W","_"], ["R","S"]],
+    ["qEnc", ["U","_"], "qEnc", ["X","_"], ["R","S"]],
+    ["qEnc", ["V","_"], "qEnc", ["Y","_"], ["R","S"]],
+    ["qEnc", ["W","_"], "qEnc", ["Z","_"], ["R","S"]],
+    ["qEnc", ["X","_"], "qEnc", ["A","_"], ["R","S"]],
+    ["qEnc", ["Y","_"], "qEnc", ["B","_"], ["R","S"]],
+    ["qEnc", ["Z","_"], "qEnc", ["C","_"], ["R","S"]]
+  ]
+}
