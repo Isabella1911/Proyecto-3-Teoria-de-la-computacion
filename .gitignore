@@ -1,0 +1,51 @@
+
+# ---- Entorno virtual ----
+venv/
+ENV/
+env/
+.venv/
+
+# ---- Cachés de Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---- Archivos temporales ----
+*.tmp
+*.log
+*.bak
+*.swp
+*.DS_Store
+
+# ---- Archivos generados por el proyecto ----
+output/
+*.txt
+
+# En caso de que generes PDFs o reportes automáticos
+*.pdf
+
+# ---- Archivos del sistema ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---- Configuración de editores ----
+# VSCode
+.vscode/
+
+# PyCharm / JetBrains
+.idea/
+
+# ---- Archivos de pruebas ----
+.coverage
+pytest_cache/
+.cache/
+
+# ---- Otros posibles directorios ----
+dist/
+build/
+*.egg-info/
+
+# ---- Archivos de tu entorno local ----
+*.env
+.env/
