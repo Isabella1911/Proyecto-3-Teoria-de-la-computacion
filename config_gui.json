@@ -1,0 +1,108 @@
+{
+  "ejemplos_predefinidos": [
+    {
+      "id": 1,
+      "nombre": "Ejemplo Clásico (k=3)",
+      "llave": 3,
+      "mensaje_original": "ROMA NO FUE CONSTRUIDA EN UN DIA.",
+      "mensaje_cifrado": "URPD QR IXH FRQVWUXLGD HQ XQ GLD.",
+      "descripcion": "Ejemplo clásico de cifrado César con desplazamiento de 3 posiciones"
+    },
+    {
+      "id": 2,
+      "nombre": "Saludo Simple (k=5)",
+      "llave": 5,
+      "mensaje_original": "HOLA MUNDO.",
+      "mensaje_cifrado": "MTQF RZSIТ.",
+      "descripcion": "Saludo básico con desplazamiento de 5 posiciones"
+    },
+    {
+      "id": 3,
+      "nombre": "Desplazamiento Mínimo (k=1)",
+      "llave": 1,
+      "mensaje_original": "CAESAR CIPHER.",
+      "mensaje_cifrado": "DBFTBS DJQIFS.",
+      "descripcion": "Cifrado con el desplazamiento más pequeño posible"
+    },
+    {
+      "id": 4,
+      "nombre": "ROT13 (k=13)",
+      "llave": 13,
+      "mensaje_original": "TURING MACHINE.",
+      "mensaje_cifrado": "GHEVAT ZNPUVAR.",
+      "descripcion": "ROT13, el cifrado simétrico más famoso (13 es la mitad del alfabeto)"
+    },
+    {
+      "id": 5,
+      "nombre": "Teoría de la Computación (k=7)",
+      "llave": 7,
+      "mensaje_original": "LA TEORIA DE LA COMPUTACION.",
+      "mensaje_cifrado": "SH ALVYPH KL SH JVTWBAHJPVU.",
+      "descripcion": "Mensaje relacionado con el curso"
+    },
+    {
+      "id": 6,
+      "nombre": "Mensaje Secreto (k=10)",
+      "llave": 10,
+      "mensaje_original": "PROYECTO EXITOSO.",
+      "mensaje_cifrado": "ZBYWOMDY ONSDYCY.",
+      "descripcion": "Celebración del proyecto con k=10"
+    },
+    {
+      "id": 7,
+      "nombre": "Frase Motivacional (k=4)",
+      "llave": 4,
+      "mensaje_original": "NUNCA TE RINDAS.",
+      "mensaje_cifrado": "RYRGF XI VMRHFW.",
+      "descripcion": "Mensaje motivacional con desplazamiento de 4"
+    },
+    {
+      "id": 8,
+      "nombre": "Desplazamiento Grande (k=20)",
+      "llave": 20,
+      "mensaje_original": "COMPUTADORAS.",
+      "mensaje_cifrado": "WICJTRYXIRWQ.",
+      "descripcion": "Ejemplo con un desplazamiento mayor para ver el efecto del módulo"
+    }
+  ],
+  "configuracion_gui": {
+    "ventana": {
+      "ancho": 900,
+      "alto": 700,
+      "redimensionable": true
+    },
+    "colores": {
+      "fondo": "#f0f0f0",
+      "acento": "#2196F3",
+      "texto": "#333333",
+      "exito": "#4CAF50",
+      "advertencia": "#FF9800",
+      "error": "#F44336"
+    },
+    "fuentes": {
+      "titulo": ["Arial", 16, "bold"],
+      "subtitulo": ["Arial", 12, "bold"],
+      "normal": ["Arial", 10],
+      "codigo": ["Consolas", 11]
+    }
+  },
+  "alfabeto": {
+    "letras": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "simbolos_especiales": [" ", "."],
+    "simbolo_separador": "#",
+    "tamano": 27,
+    "notas": "El alfabeto incluye las 26 letras del inglés más Ñ, totalizando 27 caracteres"
+  },
+  "informacion_proyecto": {
+    "nombre": "Simulador de Máquinas de Turing para Cifrado César",
+    "curso": "Teoría de la Computación",
+    "año": 2025,
+    "descripcion": "Implementación de dos máquinas de Turing (encriptación y decriptación) que simulan el cifrado César",
+    "objetivos": [
+      "Investigar la implementación computacional de las máquinas de Turing",
+      "Simular máquinas de Turing para encriptar y decriptar mensajes",
+      "Respetar las operaciones permitidas de una Máquina de Turing",
+      "Comprender el cifrado César y su aplicación práctica"
+    ]
+  }
+}

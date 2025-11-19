@@ -44,10 +44,57 @@ def encrypt(input_word: str, json_path: Optional[str] = None) -> str:
     Retorna la cinta 1 al finalizar la ejecución, sin blancos externos.
     """
     tm = load_encoder_machine(json_path)
-    # cinta 1 = input_word; cinta 2 se inicializa en blanco
     tm.reset([input_word])
     tm.run(verbose=False)
-    return tm.get_tape(tape_index=0, strip_blanks=True)
+    raw = tm.get_tape(tape_index=0, strip_blanks=True)
+    # Si la salida conserva la llave, removerla para entregar solo el mensaje cifrado
+    if '#' in raw:
+        parts = raw.split('#', 1)
+        if len(parts) == 2:
+            return parts[1]
+    return raw
+
+
+def encrypt_with_trace(input_word: str, json_path: Optional[str] = None, max_steps: int = 10_000) -> tuple[str, list]:
+    """Encripta la cadena y devuelve (salida, trazado_de_cinta).
+
+    El trazado es una lista de diccionarios con:
+      step: número de paso
+      state: estado actual
+      head: posición de la cabeza
+      tape: representación de la cinta con símbolo bajo cabeza entre corchetes
+
+    max_steps limita la captura para evitar explosión de memoria en entradas grandes.
+    """
+    tm = load_encoder_machine(json_path)
+    tm.reset([input_word])
+    trace = []
+
+    def snapshot(step: int):
+        head = tm.heads[0]
+        tape_list = tm.tapes[0][:]
+        rendered = "".join(
+            f"[{c}]" if i == head else c for i, c in enumerate(tape_list)
+        )
+        trace.append({
+            "step": step,
+            "state": tm.current_state,
+            "head": head,
+            "tape": rendered
+        })
+
+    snapshot(0)
+    while not tm.halted and tm.steps < max_steps:
+        if not tm.step():
+            break
+        snapshot(tm.steps)
+
+    raw = tm.get_tape(tape_index=0, strip_blanks=True)
+    if '#' in raw:
+        parts = raw.split('#', 1)
+        if len(parts) == 2:
+            return parts[1], trace
+    return raw, trace
 
 
 if __name__ == "__main__":
