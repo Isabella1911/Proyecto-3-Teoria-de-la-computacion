@@ -17,9 +17,9 @@ def _get_project_root() -> Path:
 
 def load_encoder_machine(json_path: Optional[str] = None) -> TuringMachine:
     """
-    Carga la máquina de Turing de ENCRIPTACIÓN (César +3).
+    Carga la máquina de Turing de encriptación (César con llave k).
 
-    Si json_path es None, usa por defecto:
+    Si no se especifica json_path, usa:
         <raiz_proyecto>/ejemplos/mt_encoder.json
     """
     root = _get_project_root()
@@ -35,13 +35,12 @@ def load_encoder_machine(json_path: Optional[str] = None) -> TuringMachine:
 
 def encrypt(input_word: str, json_path: Optional[str] = None) -> str:
     """
-    Encripta una cadena usando la MT de encriptación.
+    Encripta una cadena usando la MT (César, llave k).
 
-    input_word debe venir en el formato:
-        "3#ROMA NO FUE CONSTRUIDA EN UN DIA."
-    (o el mensaje que quieras en mayúsculas).
+    Formato de entrada:
+        "k#MENSAJE" (en mayúsculas).
 
-    Retorna la cinta 1 al finalizar la ejecución, sin blancos externos.
+    Devuelve el contenido de la cinta sin blancos externos.
     """
     tm = load_encoder_machine(json_path)
     tm.reset([input_word])
@@ -56,15 +55,9 @@ def encrypt(input_word: str, json_path: Optional[str] = None) -> str:
 
 
 def encrypt_with_trace(input_word: str, json_path: Optional[str] = None, max_steps: int = 10_000) -> tuple[str, list]:
-    """Encripta la cadena y devuelve (salida, trazado_de_cinta).
+    """Encripta y retorna (salida, trazado).
 
-    El trazado es una lista de diccionarios con:
-      step: número de paso
-      state: estado actual
-      head: posición de la cabeza
-      tape: representación de la cinta con símbolo bajo cabeza entre corchetes
-
-    max_steps limita la captura para evitar explosión de memoria en entradas grandes.
+    El trazado incluye paso, estado, cabeza y cinta renderizada.
     """
     tm = load_encoder_machine(json_path)
     tm.reset([input_word])

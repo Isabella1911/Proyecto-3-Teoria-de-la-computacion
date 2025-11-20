@@ -17,9 +17,9 @@ def _get_project_root() -> Path:
 
 def load_decoder_machine(json_path: Optional[str] = None) -> TuringMachine:
     """
-    Carga la máquina de Turing de DECRIPTACIÓN (César -3).
+    Carga la máquina de Turing de decriptación (César con llave k).
 
-    Si json_path es None, usa por defecto:
+    Si no se especifica json_path, usa:
         <raiz_proyecto>/ejemplos/mt_decoder.json
     """
     root = _get_project_root()
@@ -35,13 +35,12 @@ def load_decoder_machine(json_path: Optional[str] = None) -> TuringMachine:
 
 def decrypt(input_word: str, json_path: Optional[str] = None) -> str:
     """
-    Decripta una cadena usando la MT de decriptación.
+    Decripta una cadena usando la MT (César, llave k).
 
-    input_word debe venir en el formato:
-        "3#URPD QR IXH FRQVWUXLGD HQ XQ GLD."
-    (o cualquier mensaje cifrado con César +3).
+    Formato de entrada:
+        "k#MENSAJE_CIFRADO" (en mayúsculas).
 
-    Retorna la cinta 1 al finalizar la ejecución, sin blancos externos.
+    Devuelve el contenido de la cinta sin blancos externos.
     """
     tm = load_decoder_machine(json_path)
     tm.reset([input_word])
@@ -56,11 +55,9 @@ def decrypt(input_word: str, json_path: Optional[str] = None) -> str:
 
 
 def decrypt_with_trace(input_word: str, json_path: Optional[str] = None, max_steps: int = 10_000) -> tuple[str, list]:
-    """Decripta la cadena y devuelve (salida, trazado_de_cinta).
+    """Decripta y retorna (salida, trazado).
 
-    El trazado es una lista de diccionarios con:
-      step, state, head, tape
-    max_steps limita la captura.
+    El trazado incluye paso, estado, cabeza y cinta renderizada.
     """
     tm = load_decoder_machine(json_path)
     tm.reset([input_word])

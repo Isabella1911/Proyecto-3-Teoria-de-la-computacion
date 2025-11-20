@@ -4,7 +4,7 @@
 
 Este proyecto implementa un **simulador de Máquinas de Turing deterministas** y define **dos máquinas específicas** para:
 
-1. **Encriptar** mensajes usando el **Cifrado César con desplazamiento general k (0 ≤ k ≤ 27)**.
+1. **Encriptar** mensajes usando el **Cifrado César con desplazamiento general k (0 ≤ k ≤ 26)**.
 2. **Decriptar** mensajes cifrados con la misma llave.
 
 La especificación del proyecto indica que el cifrado debe realizarse **solo con las operaciones permitidas por una Máquina de Turing**: cambiar de estado, sustituir símbolos de cinta y mover la cabeza a la izquierda o a la derecha, sin usar funciones externas de “suma” o “módulo” dentro de la lógica de la MT.
@@ -27,10 +27,6 @@ La especificación del proyecto indica que el cifrado debe realizarse **solo con
 ### Opción 1: Interfaz Gráfica
 
 ```bash
-# Windows: Doble clic en
-Ejecutar_GUI.bat
-
-# O desde terminal
 python run_gui.py
 ```
 
@@ -41,7 +37,7 @@ python run_gui.py
 python main_encoder.py "3#HOLA MUNDO."
 
 # Decriptar
-python main_decoder.py "3#MTQF RZSIТ."
+python main_decoder.py "3#MTQF RZSIT."
 ```
 
 ---
@@ -62,7 +58,7 @@ M = (Q, \Sigma, \Gamma, \_, q_0, F, \delta)
 
 Donde:
 - **Q**: Conjunto de estados
-- **Σ**: Alfabeto de entrada (A-Z, Ñ, espacio, punto, #, 0-9)
+- **Σ**: Alfabeto de entrada (A-Z, espacio, punto, #, 0-9)
 - **Γ**: Alfabeto de cinta
 - **\_**: Símbolo en blanco
 - **q₀**: Estado inicial
@@ -117,10 +113,6 @@ Donde:
 ### Ejecutar
 
 ```bash
-# Windows
-Ejecutar_GUI.bat
-
-# Todas las plataformas
 python run_gui.py
 ```
 
@@ -161,7 +153,7 @@ La GUI incluye **4 pestañas**:
 2. Ve a pestaña "Encriptar"
 3. Ingresa: `3#HOLA MUNDO.`
 4. Presiona "Encriptar"
-5. Resultado: `MTQF RZSIТ.`
+5. Resultado: `MTQF RZSIT.`
 
 ---
 
@@ -199,10 +191,10 @@ from maquina.decoder_mt import decrypt
 
 # Encriptar
 cifrado = encrypt("3#HOLA MUNDO.")
-print(cifrado)  # MTQF RZSIТ.
+print(cifrado)  # MTQF RZSIT.
 
 # Decriptar
-original = decrypt("3#MTQF RZSIТ.")
+original = decrypt("3#MTQF RZSIT.")
 print(original)  # HOLA MUNDO.
 ```
 
@@ -222,7 +214,7 @@ Salida:               ROMA NO FUE CONSTRUIDA EN UN DIA.
 ### Ejemplo 2: Simple (k=5)
 ```
 Entrada:  5#HOLA MUNDO.
-Salida:   MTQF RZSIТ.
+Salida:   MTQF RZSIT.
 ```
 
 ### Ejemplo 3: ROT13 (k=13)
@@ -239,7 +231,7 @@ Salida:   DBFTBS DJQIFS.
 
 ### Más Ejemplos
 
-Consulta `config_gui.json` para ejemplos predefinidos o la pestaña "Ejemplos" en la GUI.
+Usa la pestaña "Ejemplos" en la GUI para casos predefinidos.
 
 ---
 
@@ -274,38 +266,25 @@ Esto permite verificar que la máquina solo usa movimientos, escrituras y cambio
 
 ```
 Proyecto-3-Teoria-de-la-computacion/
-│
-├── GUI
-│   ├── gui.py                    # Interfaz gráfica principal
-│   ├── run_gui.py                # Script de inicio
-│   ├── Ejecutar_GUI.bat          # Ejecutable Windows
-│   └── config_gui.json           # Configuración y ejemplos
-│
-├── Scripts CLI
-│   ├── main_encoder.py           # Encriptar por CLI
-│   └── main_decoder.py           # Decriptar por CLI
-│
-├── Máquinas de Turing
-│   └── maquina/
-│       ├── turing.py             # Simulador de MT
-│       ├── encoder_mt.py         # MT de encriptación
-│       ├── decoder_mt.py         # MT de decriptación
-│       └── parser.py             # Parser JSON
-│
-├── Configuración
-│   └── ejemplos/
-│       ├── mt_encoder.json       # Definición MT encoder
-│       ├── mt_decoder.json       # Definición MT decoder
-│       ├── input_encoder.txt     # Ejemplo entrada encoder
-│       └── input_decoder.txt     # Ejemplo entrada decoder
-│
-├── Salida
-│   └── output/
-│       ├── encoder_output.txt    # Resultado encriptación
-│       └── decoder_output.txt    # Resultado decriptación
-│
-└── Documentación
-    └── README.md                 # Este archivo
+├── gui.py                 # Interfaz gráfica
+├── run_gui.py             # Lanzador de la GUI
+├── main_encoder.py        # Encriptar por CLI
+├── main_decoder.py        # Decriptar por CLI
+├── generate_machines.py   # Generador de MTs (JSON)
+├── maquina/
+│   ├── turing.py          # Simulador de MT (genérico)
+│   ├── parser.py          # Carga JSON → MT
+│   ├── encoder_mt.py      # Capa de ejecución (encoder)
+│   └── decoder_mt.py      # Capa de ejecución (decoder)
+├── ejemplos/
+│   ├── mt_encoder.json    # MT de encriptación
+│   ├── mt_decoder.json    # MT de decriptación
+│   ├── input_encoder.txt  # Ejemplo de entrada
+│   └── input_decoder.txt  # Ejemplo de entrada
+├── output/
+│   ├── encoder_output.txt # Último resultado encoder
+│   └── decoder_output.txt # Último resultado decoder
+└── README.md
 ```
 
 ---

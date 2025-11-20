@@ -320,8 +320,8 @@ EJEMPLO 1: Llave k=3
 EJEMPLO 2: Llave k=5
 ------------------------------------------------------------
     Entrada (encriptar):  5#HOLA MUNDO.
-    Salida (encriptado):  MTQF RZSIТ.
-    Entrada (decriptar):  5#MTQF RZSIТ.
+    Salida (encriptado):  MTQF RZSIT.
+    Entrada (decriptar):  5#MTQF RZSIT.
     Salida (decriptado):  HOLA MUNDO.
 
 EJEMPLO 3: Llave k=1
